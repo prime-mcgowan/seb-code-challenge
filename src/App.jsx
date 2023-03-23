@@ -47,9 +47,10 @@ function App() {
        <div className="container col-xxl-8 px-4 py-5">
            <div className="row g-5 py-5 row-cols-1 row-cols-lg-2">
             <div className="col order-last order-lg-first">
-                <h1 className="display-5 fw-bold 1h-1 mb-3">APP NAME: A CODING PROJECT</h1>
-            <h4 className="lead">Project Description Goes Here</h4>
-            <ul className="fa-ul pt-2 checklist">
+                <h1 className="display-5 fw-bold 1h-1 mb-3">Top 5: SEB Code Challenge</h1>
+            <h4 className="lead">Build an application that uses Github's API to return the top 5 starred repositories for a user-supplied programming language.</h4>
+
+            {/* <ul className="fa-ul pt-2 checklist">
                 <li><span className="fa-li"><i className="fas fa-check-square"></i></span>CSS and Bootstrap Layout</li>
                 <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Javasript Fundamentals</li>
                 <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Javascript Loops</li>
@@ -57,17 +58,19 @@ function App() {
                 <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Dom Manipulation</li>
                 <li><span className="fa-li"><i className="fas fa-check-square"></i></span>If/Then/Else Logic</li>
                 <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Boolean Logic</li>
-            </ul>
-            <div>
+            </ul> */}
+            {/* <div>
                 <a type="button" className="btn btn-outline-dark btn-lg px-4 me-md-2" href="app.html">Try It Out!</a>
-            </div>
+            </div> */}
             <h5 className="fw-bold mt-5">
                 <div className="d-flex">
-                    <div className="row">
-                        <div className="col"><i className="fab fa-bootstrap fa-3x bsicon"></i></div>
+                    <div className="row" style={{marginTop:"-20px"}}>
+                        <div className="col"><h4>Built using:</h4></div>
                         <div className="col"><i className="fab fa-html5 fa-3x html5icon"></i></div>
                         <div className="col"><i className="fab fa-css3-alt fa-3x cssicon"></i></div>
                         <div className="col"><i className="fab fa-js-square fa-3x jsicon"></i></div>
+                        <div className="col"><i className="fab fa-react fa-3x reacticon"></i></div>
+                        <div className="col"><i className="fab fa-bootstrap fa-3x bsicon"></i></div>
                     </div>
                 </div>
             </h5>
