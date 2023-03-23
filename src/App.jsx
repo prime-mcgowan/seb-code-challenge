@@ -6,149 +6,114 @@ function App() {
   const [repos, setRepos] = useState([]);
 
 
-  //Handle the language provided by the user
+  //Handles the language input
   const handleLanguageInput = (event) => {
     setLanguage(event.target.value);
   }
 
-  //Hadle the submit button
+  //Hadles the submit button
   const handleSubmitButton = (event) => {
     event.preventDefault();
 
-  //API Url
+  //API Url (includes a sort by stars and desc order)
   const apiEndPoint = `https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc`;
-
-  //Request header with my token
-  const headers = {
-    Authorization: `token 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`
-  }
 
   //Request and Response
   fetch(apiEndPoint)
-    .then(response => response.json())
+    .then(response => response.json()) 
     .then(data => {
-      // if (data && data.items) {
       //top 5 will be sent back
       const topFiveRepos = data.items.slice(0, 5);
-      // console.log(topFiveRepos)
-      // } else {
-      //   console.log('Data is missing');
-      // }
+      console.log(topFiveRepos)
       setRepos(topFiveRepos);
     })
     .catch(error => console.log('Error in fetching top 5 repos', error))
+  }//end handleSubmitButton function
 
-  }//end handleSubmitButton
+
 
   return (
     <div>
-
-<main className="flex-shrink-0">
-       <div className="container col-xxl-8 px-4 py-5">
-           <div className="row g-5 py-5 row-cols-1 row-cols-lg-2">
+{/* Start Header Section */}
+      <header className="flex-shrink-0" style={{marginTop:"-100px"}}>
+        <div className="container col-xxl-8 px-4 py-5">
+          <div className="row g-5 py-5 row-cols-1 row-cols-lg-2">
             <div className="col order-last order-lg-first">
-                <h1 className="display-5 fw-bold 1h-1 mb-3">Top 5: SEB Code Challenge</h1>
-            <h4 className="lead">Build an application that uses Github's API to return the top 5 starred repositories for a user-supplied programming language.</h4>
-
-            {/* <ul className="fa-ul pt-2 checklist">
-                <li><span className="fa-li"><i className="fas fa-check-square"></i></span>CSS and Bootstrap Layout</li>
-                <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Javasript Fundamentals</li>
-                <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Javascript Loops</li>
-                <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Javascript Functions</li>
-                <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Dom Manipulation</li>
-                <li><span className="fa-li"><i className="fas fa-check-square"></i></span>If/Then/Else Logic</li>
-                <li><span className="fa-li"><i className="fas fa-check-square"></i></span>Boolean Logic</li>
-            </ul> */}
-            {/* <div>
-                <a type="button" className="btn btn-outline-dark btn-lg px-4 me-md-2" href="app.html">Try It Out!</a>
-            </div> */}
-            <h5 className="fw-bold mt-5">
-                <div className="d-flex">
-                    <div className="row" style={{marginTop:"-20px"}}>
-                        <div className="col"><h4>Built using:</h4></div>
+                <h1 className="display-5 fw-bold 1h-1 mb-3"
+                    style={{color:"#431399"}}>Top 5: An SEB Code Challenge
+                </h1>
+                <h4 className="lead" style={{color:"#4D23A4"}}>Build an application that uses Github's API to return the top 5 starred repositories for a user-supplied programming language.</h4>
+                <h4 style={{marginTop:"20px", color:"#4D23A4"}}>Built using:</h4>
+                <h5 className="fw-bold mt-5">
+                  <div className="d-flex">
+                    <div className="row" style={{marginTop:"-30px"}}>
                         <div className="col"><i className="fab fa-html5 fa-3x html5icon"></i></div>
                         <div className="col"><i className="fab fa-css3-alt fa-3x cssicon"></i></div>
                         <div className="col"><i className="fab fa-js-square fa-3x jsicon"></i></div>
                         <div className="col"><i className="fab fa-react fa-3x reacticon"></i></div>
                         <div className="col"><i className="fab fa-bootstrap fa-3x bsicon"></i></div>
                     </div>
-                </div>
-            </h5>
+                  </div>
+                </h5>
             </div>
+
             <div className="col">
-                 {/* <img src="app logo" class="img-fluid center-block d-block mx-auto" alt="App Logo" width="700" height="500" */}
+                 <img src="./images/topfive.png" className="img-fluid center-block d-block mx-auto" alt="App Logo" width="250" height="200" style={{marginTop:"30px"}}/>
             </div>
            </div>
-       </div>
- </main>
+        </div>
+      </header>
+{/* End Header Section */}
 
 
+{/* End Main Section */}
+    <main style={{marginTop:"-80px"}}>
+        <form 
+          onSubmit={handleSubmitButton}
+        >
+          <label 
+            style={{marginLeft:"10px", fontSize:"20px"}}>What are the current TOP 5 Github repositories for:
+          </label>
+          <input 
+            type="text" 
+            placeholder="programming language"
+            value={language}
+            style={{marginLeft:"5px"}}
+            onChange={handleLanguageInput}
+          /> 
+          <button 
+            type="submit"
+            style={{marginLeft:"10px"}}
+            className="btn btn-danger"
+          >Submit
+          </button>
+        </form> 
 
-
-
-<main>
-      <form onSubmit={handleSubmitButton}>
-        <label>What are the current TOP 5 Github repositories for:</label>
-        <input type="text" 
-               placeholder="enter programming language"
-               value={language}
-               onChange={handleLanguageInput}
-        /> 
-        <button type="submit">Submit</button>
-      </form>
-
-        <ul>
-          {repos.map(repo => (
-            <li key={repo.id}>
-              <a href={repo.html_url}>{repo.full_name}</a> - {repo.stargazers_count} stars
-            </li>
-          ))}
+        <ul 
+          style={{paddingTop:"10px"}}>
+            {repos.map(repo => (
+              <li key={repo.id}>
+                <a target="_blank" href={repo.html_url}>{repo.full_name}</a> - {repo.stargazers_count} stars
+              </li>
+            ))}
         </ul>
-</main>
+    </main>
+{/* End Main Section */}
           
 
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* <!-- Footer Section --> */}
-<footer className="footer mt-auto py-3">
-  <div className="container-fluid">
-      <div className="row row-cols-1 row-cols-lg-3 gy-2">
-          <div className="col order-last order-lg-first text-light">
-              <div><span className="text-muted">&copy;2023</span> Laura McGowan | mcgowancodes@gmail.com</div>
-          </div>
+{/* <!-- Start Footer Section --> */}
+    <footer 
+      className="footer mt-auto py-3">
+        <div className="container-fluid">
           <div className="col d-flex align-items-center justify-content-start justify-content-lg-center">
-              <img src="..." alt="..." height="24"/>
+            <div className="text-muted d-flex align-items-center justify-content-start justify-content-lg-center"> Laura McGowan | mcgowancodes@gmail.com</div>
           </div>
-          <div className="col d-flex align-items-center justify-content-start justify-content-lg-end">
-              <div className="row">
-                  <div className="col social"><a href="#" target="_blank"><i className="fab fa-github fa-2x"></i></a></div>
-                  <div className="col social"><a href="#" target="_blank"><i className="fab fa-linkedin fa-2x"></i></a></div>
-                  <div className="col social"><a href="#" target="_blank"><i className="fab fa-google fa-2x"></i></a></div>
-
-              </div>
-          </div>
-      </div>
-  </div>
-</footer>
-
-
-
-
-
+        </div>
+    </footer>
+{/* <!-- End Footer Section --> */}
      
-    </div>
-    
-  );
-}
+    </div> 
+  ); //end return 
+} //end App Function
 
 export default App;
