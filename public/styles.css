@@ -20,9 +20,9 @@ body{
     color:var(--dark-color);
 }
 
-nav{
+/* nav{
     background-color: var(--dark-color);
-}
+} */
 
 footer{
     background-color: var(--dark-color);
@@ -36,7 +36,7 @@ footer{
     padding-right: 1rem;
 }
 
-footer .social>a{
+/* footer .social>a{
     color: var(--white-color);
     opacity: 0.75;
 }
@@ -44,7 +44,7 @@ footer .social>a{
 footer .social>a:hover{
     opacity: 0.9;
     color: var(--secondary-color);
-}
+} */
 
 .bsicon{
     color:#563d7c;
@@ -60,4 +60,8 @@ footer .social>a:hover{
 
 .cssicon{
     color:#0000ff;
+}
+
+.reacticon{
+    color:#44CFF4;
 }

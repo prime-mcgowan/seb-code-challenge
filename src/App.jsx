@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 
-function App() {
+function TopFive() {
   const [language, setLanguage] = useState("");
   const [repos, setRepos] = useState([]);
 
@@ -24,7 +24,7 @@ function App() {
     .then(data => {
       //top 5 will be sent back
       const topFiveRepos = data.items.slice(0, 5);
-      console.log(topFiveRepos)
+      // console.log(topFiveRepos)
       setRepos(topFiveRepos);
     })
     .catch(error => console.log('Error in fetching top 5 repos', error))
@@ -40,7 +40,7 @@ function App() {
           <div className="row g-5 py-5 row-cols-1 row-cols-lg-2">
             <div className="col order-last order-lg-first">
                 <h1 className="display-5 fw-bold 1h-1 mb-3"
-                    style={{color:"#431399"}}>Top 5: An SEB Code Challenge
+                    style={{color:"#431399", marginTop:"30px"}}>Top 5: An SEB Code Challenge
                 </h1>
                 <h4 className="lead" style={{color:"#4D23A4"}}>Build an application that uses Github's API to return the top 5 starred repositories for a user-supplied programming language.</h4>
                 <h4 style={{marginTop:"20px", color:"#4D23A4"}}>Built using:</h4>
@@ -59,6 +59,14 @@ function App() {
 
             <div className="col">
                  <img src="./images/topfive.png" className="img-fluid center-block d-block mx-auto" alt="App Logo" width="250" height="200" style={{marginTop:"30px"}}/>
+               
+                 <button 
+                  type="button" 
+                  className="btn btn-warning"
+                  style={{display:"block", margin:"auto", marginTop:"20px"}}
+                  >
+                  Click here to see the code!
+                 </button>
             </div>
            </div>
         </div>
@@ -72,7 +80,7 @@ function App() {
           onSubmit={handleSubmitButton}
         >
           <label 
-            style={{marginLeft:"10px", fontSize:"20px"}}>What are the current TOP 5 Github repositories for:
+            style={{marginLeft:"50px", marginTop:"20px", fontSize:"20px"}}>Show me the current TOP 5 Github repositories for:
           </label>
           <input 
             type="text" 
@@ -97,23 +105,23 @@ function App() {
               </li>
             ))}
         </ul>
-    </main>
+  
+    
 {/* End Main Section */}
           
 
-{/* <!-- Start Footer Section --> */}
+{/*  Start Footer Section */}
     <footer 
-      className="footer mt-auto py-3">
-        <div className="container-fluid">
-          <div className="col d-flex align-items-center justify-content-start justify-content-lg-center">
-            <div className="text-muted d-flex align-items-center justify-content-start justify-content-lg-center"> Laura McGowan | mcgowancodes@gmail.com</div>
+      className="footer mt-auto py-3" >
+        <div className="container-fluid" style={{position:"relative", bottom:"0"}}>
+            <div className="text-muted d-flex align-items-center justify-content-start justify-content-lg-center"
+                 > Laura McGowan | mcgowancodes@gmail.com</div>
           </div>
-        </div>
     </footer>
-{/* <!-- End Footer Section --> */}
-     
+{/* End Footer Section */}
+</main>
     </div> 
   ); //end return 
 } //end App Function
 
-export default App;
+export default TopFive;
