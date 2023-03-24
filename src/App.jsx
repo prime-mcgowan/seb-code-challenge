@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
 
 function TopFive() {
   const [language, setLanguage] = useState("");
@@ -41,18 +40,18 @@ function TopFive() {
           <div className="row g-5 py-5 row-cols-1 row-cols-lg-2">
             <div className="col order-last order-lg-first">
                 <h1 className="display-5 fw-bold 1h-1 mb-3"
-                    style={{color:"#431399", marginTop:"30px"}}>Top 5: An SEB Code Challenge
+                    style={{color:"#431399", marginTop:"30px"}}>Top 5: A Self Esteem Brands Code Challenge
                 </h1>
                 <h4 className="lead" style={{color:"#4D23A4"}}>Build an application that uses Github's API to return the top 5 starred repositories for a user-supplied programming language.</h4>
                 <h4 style={{marginTop:"20px", color:"#4D23A4"}}>Built using:</h4>
                 <h5 className="fw-bold mt-5">
                   <div className="d-flex">
                     <div className="row" style={{marginTop:"-30px"}}>
-                        <div className="col"><i className="fab fa-html5 fa-3x html5icon"></i></div>
-                        <div className="col"><i className="fab fa-css3-alt fa-3x cssicon"></i></div>
-                        <div className="col"><i className="fab fa-js-square fa-3x jsicon"></i></div>
-                        <div className="col"><i className="fab fa-react fa-3x reacticon"></i></div>
-                        <div className="col"><i className="fab fa-bootstrap fa-3x bsicon"></i></div>
+                        <div className="col"><i className="fab fa-html5 fa-2x html5icon"></i></div>
+                        <div className="col"><i className="fab fa-css3-alt fa-2x cssicon"></i></div>
+                        <div className="col"><i className="fab fa-js-square fa-2x jsicon"></i></div>
+                        <div className="col"><i className="fab fa-react fa-2x reacticon"></i></div>
+                        <div className="col"><i className="fab fa-bootstrap fa-2x bsicon"></i></div>
                     </div>
                   </div>
                 </h5>
@@ -61,7 +60,6 @@ function TopFive() {
             <div className="col">
                  <img src="./images/topfive.png" className="img-fluid center-block d-block mx-auto" alt="App Logo" width="250" height="200" style={{marginTop:"30px"}}/>
                
-               {/* <Link to="https://github.com/prime-mcgowan/seb-code-challenge.git"> */}
                  <button 
                   type="button" 
                   className="btn btn-warning"
@@ -70,7 +68,6 @@ function TopFive() {
                   >
                   Click here to see the code!
                  </button>
-               {/* </Link> */}
             </div>
            </div>
         </div>
@@ -105,7 +102,7 @@ function TopFive() {
           style={{paddingTop:"10px"}}>
             {repos.map(repo => (
               <li key={repo.id}>
-                <a target="_blank" href={repo.html_url}>{repo.full_name}</a> - {repo.stargazers_count} stars
+                <a href={repo.html_url} target="_blank" rel="noopener noreferrer">{repo.full_name}</a> - {repo.stargazers_count} stars
               </li>
             ))}
         </ul>
