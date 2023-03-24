@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 function TopFive() {
   const [language, setLanguage] = useState("");
@@ -60,13 +61,16 @@ function TopFive() {
             <div className="col">
                  <img src="./images/topfive.png" className="img-fluid center-block d-block mx-auto" alt="App Logo" width="250" height="200" style={{marginTop:"30px"}}/>
                
+               {/* <Link to="https://github.com/prime-mcgowan/seb-code-challenge.git"> */}
                  <button 
                   type="button" 
                   className="btn btn-warning"
                   style={{display:"block", margin:"auto", marginTop:"20px"}}
+                  onClick={() => window.location.href="https://github.com/prime-mcgowan/seb-code-challenge.git"}
                   >
                   Click here to see the code!
                  </button>
+               {/* </Link> */}
             </div>
            </div>
         </div>
@@ -74,7 +78,7 @@ function TopFive() {
 {/* End Header Section */}
 
 
-{/* End Main Section */}
+{/* Start Main Section */}
     <main style={{marginTop:"-80px"}}>
         <form 
           onSubmit={handleSubmitButton}
@@ -105,8 +109,7 @@ function TopFive() {
               </li>
             ))}
         </ul>
-  
-    
+    </main>   
 {/* End Main Section */}
           
 
@@ -119,9 +122,10 @@ function TopFive() {
           </div>
     </footer>
 {/* End Footer Section */}
-</main>
+
+
     </div> 
   ); //end return 
-} //end App Function
+} //end TopFive Function
 
 export default TopFive;
