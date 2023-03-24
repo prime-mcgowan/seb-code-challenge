@@ -6,14 +6,15 @@ function TopFive() {
   const [repos, setRepos] = useState([]);
 
 
-  //Handles the language input
+  //Function to handle the language input
   const handleLanguageInput = (event) => {
     setLanguage(event.target.value);
   }
 
-  //Hadles the submit button
+  //Function to handle the submit button
   const handleSubmitButton = (event) => {
     event.preventDefault();
+
 
   //API Url (includes a sort by stars and desc order)
   const apiEndPoint = `https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc`;
