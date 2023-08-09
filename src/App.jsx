@@ -61,14 +61,23 @@ function TopFive() {
             <div className="col">
                  <img src="./images/topfive.png" className="img-fluid center-block d-block mx-auto" alt="App Logo" width="250" height="200" style={{marginTop:"30px"}}/>
                
-                 <button 
-                  type="button" 
+              <a
+                href="https://github.com/prime-mcgowan/seb-code-challenge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button
+                  type="button"
                   className="btn btn-warning"
-                  style={{display:"block", margin:"auto", marginTop:"20px"}}
-                  onClick={() => window.location.href="https://github.com/prime-mcgowan/seb-code-challenge.git"}
-                  >
+                  style={{
+                    display: "block",
+                    margin: "auto",
+                    marginTop: "20px",
+                  }}
+                >
                   Click here to see the code!
-                 </button>
+                </button>
+              </a>
             </div>
            </div>
         </div>
