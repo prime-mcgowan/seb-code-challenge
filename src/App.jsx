@@ -121,13 +121,13 @@ function TopFive() {
           
 
 {/*  Start Footer Section */}
-    <footer 
+{/*     <footer 
       className="footer mt-auto py-3" >
         <div className="container-fluid" style={{position:"relative", bottom:"0"}}>
             <div className="text-muted d-flex align-items-center justify-content-start justify-content-lg-center"
                  > Laura McGowan | mcgowancodes@gmail.com</div>
           </div>
-    </footer>
+    </footer> */}
 {/* End Footer Section */}
 
 
